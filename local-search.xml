@@ -5,25 +5,6 @@
   
   <entry>
     <title>第一个博客的创建</title>
-    <link href="/2021/02/22/fenlei/"/>
-    <url>/2021/02/22/fenlei/</url>
-    
-    <content type="html"><![CDATA[<pre><code>随着npm install的成功运行之后，博客就完成了，但是没有达到想要的效果，所以只能等以后技术的进步再慢慢的改进项目，让他更加完善！</code></pre>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>日记</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>第一个博客的创建</title>
     <link href="/2021/02/22/git/"/>
     <url>/2021/02/22/git/</url>
     
@@ -34,6 +15,25 @@
     <tags>
       
       <tag>git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>第一个博客的创建</title>
+    <link href="/2021/02/22/fenlei/"/>
+    <url>/2021/02/22/fenlei/</url>
+    
+    <content type="html"><![CDATA[<pre><code>随着npm install的成功运行之后，博客就完成了，但是没有达到想要的效果，所以只能等以后技术的进步再慢慢的改进项目，让他更加完善！</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>日记</tag>
       
     </tags>
     
