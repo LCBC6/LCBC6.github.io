@@ -5,25 +5,6 @@
   
   <entry>
     <title>第一个博客的创建</title>
-    <link href="/2021/02/22/git/"/>
-    <url>/2021/02/22/git/</url>
-    
-    <content type="html"><![CDATA[<h3 id="git的使用"><a href="#git的使用" class="headerlink" title="git的使用"></a>git的使用</h3><p><code>java</code><br>echo “# LCBC6.github.io” &gt;&gt; README.md<br>git init<br>git add README.md<br>git commit -m “first commit”<br>git branch -M main<br>git remote add origin <a href="https://github.com/LCBC6/LCBC6.github.io.git">https://github.com/LCBC6/LCBC6.github.io.git</a><br>git push -u origin main</p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>git</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>第一个博客的创建</title>
     <link href="/2021/02/22/fenlei/"/>
     <url>/2021/02/22/fenlei/</url>
     
@@ -55,6 +36,25 @@
       
     </categories>
     
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>第一个博客的创建</title>
+    <link href="/2021/02/22/git/"/>
+    <url>/2021/02/22/git/</url>
+    
+    <content type="html"><![CDATA[<h3 id="git的使用"><a href="#git的使用" class="headerlink" title="git的使用"></a>git的使用</h3><p><code>java</code><br>echo “# LCBC6.github.io” &gt;&gt; README.md<br>git init<br>git add README.md<br>git commit -m “first commit”<br>git branch -M main<br>git remote add origin <a href="https://github.com/LCBC6/LCBC6.github.io.git">https://github.com/LCBC6/LCBC6.github.io.git</a><br>git push -u origin main</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>git</tag>
+      
+    </tags>
     
   </entry>
   
