@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/touxiang.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="">
+  
+  <meta name="author" content="lc">
+  <meta name="keywords" content="">
+  
+  <title>Long</title>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lcbc6.github.io","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>LC</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/t.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-25 16:22" pubdate>
+        2021年4月25日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      26
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h2><h3 id="1-前端知识体系"><a href="#1-前端知识体系" class="headerlink" title="1.前端知识体系"></a>1.前端知识体系</h3><h4 id="1-1-前端三要素"><a href="#1-1-前端三要素" class="headerlink" title="1.1 前端三要素"></a>1.1 前端三要素</h4><ul>
+<li>HTML（结构）：超文本标记语言，决定网页的结构和内容</li>
+<li>CSS（表现）：层叠样式表，设定网页的表现形式</li>
+<li>JavaScript（行为）：是一种弱类型脚本语言，其源代码不需要经过编译，而是由浏览器解释运行，用于控制网页行为</li>
+</ul>
+<h3 id="2-Vue的概述"><a href="#2-Vue的概述" class="headerlink" title="2.Vue的概述"></a>2.Vue的概述</h3><h4 id="2-1-vue-js是什么"><a href="#2-1-vue-js是什么" class="headerlink" title="2.1 vue.js是什么"></a>2.1 vue.js是什么</h4><p>​        Vue (读音 /vjuː/，类似于 <strong>view</strong>) 是一套用于构建用户界面的<strong>渐进式框架</strong>。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/single-file-components.html">现代化的工具链</a>以及各种<a target="_blank" rel="noopener" href="https://github.com/vuejs/awesome-vue#libraries--plugins">支持类库</a>结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。</p>
+<p>好处：数据和视图分离，便于维护和升级。</p>
+<h4 id="2-2-第一个vue的创建"><a href="#2-2-第一个vue的创建" class="headerlink" title="2.2 第一个vue的创建"></a>2.2 第一个vue的创建</h4><p>目的是改变data从而改变视图。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;!DOCTYPE html&gt;<br>&lt;html lang&#x3D;&quot;en&quot;&gt;<br>&lt;head&gt;<br>    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;<br>    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot;&gt;<br>    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;<br>    &lt;title&gt;第一个vue实例&lt;&#x2F;title&gt;<br>&lt;&#x2F;head&gt;<br>&lt;body&gt;<br>    &lt;!-- 视图层 --&gt;<br>    &lt;div id&#x3D;&quot;app&quot;&gt;<br>            &#123;&#123;massage&#125;&#125;<br>    &lt;&#x2F;div&gt;<br>     &lt;!-- 1、导入vue.js  --&gt;<br>    &lt;script src&#x3D;&quot;vue.js&quot;&gt;&lt;&#x2F;script&gt;<br>    &lt;script&gt;<br>        &#x2F;&#x2F; 2、创建一个vue实例<br>        var vm &#x3D; new Vue(&#123;<br>            el: &quot;#app&quot;,<br>            data: &#123;<br>                massage: &quot;hello&quot;<br>            &#125;,<br>        &#125;)<br>        &#x2F;&#x2F; 3、定义vue实例从什么节点中进行渲染和挂载<br>    &lt;&#x2F;script&gt;<br>&lt;&#x2F;body&gt;<br>&lt;&#x2F;html&gt;<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-3-插值表达式"><a href="#2-3-插值表达式" class="headerlink" title="2.3 插值表达式"></a>2.3 插值表达式</h4><p>可以完成四则运算..</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs VUE">&lt;!DOCTYPE html&gt;<br>&lt;html lang&#x3D;&quot;en&quot;&gt;<br>&lt;head&gt;<br>    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;<br>    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot;&gt;<br>    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;<br>    &lt;title&gt;插值表达式&lt;&#x2F;title&gt;<br>&lt;&#x2F;head&gt;<br>&lt;body&gt;<br>    &lt;div id&#x3D;&quot;app&quot;&gt;<br>            &#123;&#123;msg&#125;&#125;<br>            &lt;p&gt;&#123;&#123;price*num&#125;&#125;&lt;&#x2F;p&gt;<br>            &lt;p&gt;&#123;&#123;price+num&#125;&#125;&lt;&#x2F;p&gt;<br>            &lt;p&gt;&#123;&#123;price-num&#125;&#125;&lt;&#x2F;p&gt;<br>            &lt;p&gt;&#123;&#123;price&#x2F;num&#125;&#125;&lt;&#x2F;p&gt;<br>            &lt;p&gt;&#123;&#123;sex &#x3D;&#x3D;1 ?&quot;男&quot;:&quot;女&quot;&#125;&#125;&lt;&#x2F;p&gt;<br>            &lt;p&gt;&#123;&#123;cf(age,10)&#125;&#125;&lt;&#x2F;p&gt;<br>    &lt;&#x2F;div&gt;<br>    &lt;script src&#x3D;&quot;vue.js&quot;&gt;&lt;&#x2F;script&gt;<br>    &lt;script&gt;<br>        var vue &#x3D; new Vue(&#123;<br>            el: &quot;#app&quot;,<br>            data: &#123;<br>                msg: &quot;123&quot;,<br>                price: 11.25,<br>                num: 11,<br>                sex: 1<br>            &#125;,<br>            methods:&#123;<br>                cf:function(age,num)&#123;<br>                    var age &#x3D; 10;<br>                    return age+num;<br>                &#125;<br>            &#125;<br>        &#125;)<br>    &lt;&#x2F;script&gt;<br>&lt;&#x2F;body&gt;<br>&lt;&#x2F;html&gt;<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-4-vue指令"><a href="#2-4-vue指令" class="headerlink" title="2.4 vue指令"></a>2.4 vue指令</h4><p>去dom化，不用考虑dom</p>
+<p>给元素绑定事件，目的，改变data和处理业务逻辑</p>
+<p>所有事件都在methods中定义，固定语法</p>
+<p>绑定事件方式：v-on：事件类型=“事件名“（methods中去定义）简写@v-on：事件类型=“事件名”</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>click指令<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <br>    <span class="hljs-comment">&lt;!-- 视图层 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>用户名<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">input</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>密码<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">&quot;login&quot;</span>&gt;</span>登录<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;login&quot;</span>&gt;</span>@登录<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>     <span class="hljs-comment">&lt;!-- 1、导入vue.js  --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br>        <br><span class="javascript">        <span class="hljs-comment">// 2、创建一个vue实例</span></span><br><span class="javascript">        <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="javascript">            el: <span class="hljs-string">&quot;#app&quot;</span>,</span><br>            data: &#123;<br><span class="javascript">                massage: <span class="hljs-string">&quot;hello&quot;</span></span><br>            &#125;,<br>            methods:&#123;<br><span class="javascript">                login:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="javascript">                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;点啦一下&quot;</span>);</span><br>                &#125;<br>            &#125;<br>        &#125;)<br><span class="javascript">        <span class="hljs-comment">// 3、定义vue实例从什么节点中进行渲染和挂载</span></span><br><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="3vue键盘事件"><a href="#3vue键盘事件" class="headerlink" title="3vue键盘事件"></a>3vue键盘事件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;!DOCTYPE html&gt;<br>&lt;html lang&#x3D;&quot;en&quot;&gt;<br>&lt;head&gt;<br>    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;<br>    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot;&gt;<br>    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;<br>    &lt;title&gt;第一个vue实例&lt;&#x2F;title&gt;<br>&lt;&#x2F;head&gt;<br>&lt;body&gt;<br>    <br>    &lt;!-- 视图层 --&gt;<br>    &lt;div id&#x3D;&quot;app&quot;&gt;<br>        &lt;textarea name&#x3D;&quot;&quot; cols&#x3D;&quot;30&quot; rows&#x3D;&quot;10&quot; maxlength&#x3D;&quot;140&quot; id&#x3D;&quot;content&quot; v-on:keydown&#x3D;&quot;keydowncontent&quot;&gt;&lt;&#x2F;textarea&gt;<br>        &lt;span &gt;你还可以输入&#123;&#123;size&#125;&#125;字&lt;&#x2F;span&gt;<br>    &lt;&#x2F;div&gt;<br>     &lt;!-- 1、导入vue.js  --&gt;<br>    &lt;script src&#x3D;&quot;vue.js&quot;&gt;&lt;&#x2F;script&gt;<br>    &lt;script&gt;<br>        <br>        &#x2F;&#x2F; 案例：输入数字，只能输入140个，告诉用户已经输入了多少文字<br>        &#x2F;&#x2F; 语法： v-on：keydown&#x3D;&quot;&quot;<br>        var vm &#x3D; new Vue(&#123;<br>            el: &quot;#app&quot;,<br>            data: &#123;<br>                size: 0<br>            &#125;,<br>            methods:&#123;<br>                keydowncontent:function()&#123;<br>                    &#x2F;&#x2F;获取已输文字数量<br>                    var contenr &#x3D; document.getElementById(&quot;content&quot;).value();<br>                    &#x2F;&#x2F;还可以输多少个数字<br>                    var cssize &#x3D; 140 - contenr.length;<br>                    this.size &#x3D; cssize<br>                &#125;<br>            &#125;<br>        &#125;)<br>        <br>    &lt;&#x2F;script&gt;<br><br>&lt;&#x2F;body&gt;<br>&lt;&#x2F;html&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="vue上下文this"><a href="#vue上下文this" class="headerlink" title="vue上下文this"></a>vue上下文this</h3><p>this:让开发这更加方便的去修改数据和调用方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;!DOCTYPE html&gt;<br>&lt;html lang&#x3D;&quot;en&quot;&gt;<br>&lt;head&gt;<br>    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;<br>    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot;&gt;<br>    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;<br>    &lt;title&gt;第一个vue实例&lt;&#x2F;title&gt;<br>&lt;&#x2F;head&gt;<br>&lt;body&gt;<br>    <br>    &lt;!-- 视图层 --&gt;<br>    &lt;div id&#x3D;&quot;app&quot;&gt;<br>            &#123;&#123;msg&#125;&#125;<br>            &lt;button @click&#x3D;&quot;di&quot;&gt;看你ma&lt;&#x2F;button&gt;<br>    &lt;&#x2F;div&gt;<br>     &lt;!-- 1、导入vue.js  --&gt;<br>    &lt;script src&#x3D;&quot;vue.js&quot;&gt;&lt;&#x2F;script&gt;<br>    &lt;script&gt;<br>        <br>        &#x2F;&#x2F; 2、创建一个vue实例<br>        var vm &#x3D; new Vue(&#123;<br>            el: &quot;#app&quot;,<br>            data: &#123;<br>                msg: 0<br>            &#125;,<br>            methods:&#123;<br>                di:function()&#123;<br>                    this.msg &#x3D; this.msg + 1<br>                &#125;<br>            &#125;<br>        &#125;)<br>        &#x2F;&#x2F; 3、定义vue实例从什么节点中进行渲染和挂载<br><br>    &lt;&#x2F;script&gt;<br><br>&lt;&#x2F;body&gt;<br>&lt;&#x2F;html&gt;<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/04/28/SpringSecurity/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/22/redis/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <input type="hidden" name="测试是不是真的发布到了网站上">
+  <iframe frameborder="yes" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1822538249&auto=1&height=66"></iframe>
+  <div class="footer-content">
+     <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/myjs.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
