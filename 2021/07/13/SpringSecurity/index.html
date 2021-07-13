@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/touxiang.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="">
+  
+  <meta name="author" content="lc">
+  <meta name="keywords" content="">
+  
+  <title>SpringSecurity的学习 - Long</title>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lcbc6.github.io","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>LC</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/t.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="SpringSecurity的学习">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-13 17:10" pubdate>
+        2021年7月13日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      26
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">SpringSecurity的学习</h1>
+            
+            <div class="markdown-body">
+              <h2 id="SpringSecurity"><a href="#SpringSecurity" class="headerlink" title="SpringSecurity"></a>SpringSecurity</h2><h3 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h3><p>spring家族一员。提供声明式的安全访问控制解决方案的安全框架。Spring Security是一个提供身份验证、授权和防范常见攻击的框架。由于对命令式应用程序和响应式应用程序都提供了一流的支持，它是保护基于spring的应用程序的事实上的标准。</p>
+<h3 id="二、快速入门"><a href="#二、快速入门" class="headerlink" title="二、快速入门"></a>二、快速入门</h3><p>创建一个简单的SpringBoot项目，并引入web，security组件</p>
+<h4 id="1、自定义用户密码实现登录："><a href="#1、自定义用户密码实现登录：" class="headerlink" title="1、自定义用户密码实现登录："></a>1、自定义用户密码实现登录：</h4><p>当用户发起请求后，系统自动拦截，跳转到登录界面，根据用户自定义账户密码登录后跳转到正常页面。</p>
+<p>controller类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoginController</span> </span>&#123;<br><br>    <span class="hljs-meta">@RequestMapping(&quot;login&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">login</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;执行了登录方法&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:main&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>config类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * SpringSecurity配置類配置</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SecurityConfig</span> </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">    * 将BCryptPasswordEncoder设置为默认的密码加密方式</span><br><span class="hljs-comment">    */</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> PasswordEncoder <span class="hljs-title">getPasswordEncoder</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> BCryptPasswordEncoder();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>service类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * UserDetailsService實現類</span><br><span class="hljs-comment"> */</span><br><span class="hljs-comment">//首先实现UserDetailServer并完成为实现的方法</span><br><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserDetailsServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserDetailsService</span> </span>&#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> PasswordEncoder passwordEncoder;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> UserDetails <span class="hljs-title">loadUserByUsername</span><span class="hljs-params">(String username)</span> <span class="hljs-keyword">throws</span> UsernameNotFoundException </span>&#123;<br>        <span class="hljs-comment">//自定義實現</span><br><span class="hljs-comment">//        1、查詢數據庫判斷用戶是否存在，如果不存在就拋出UsernameNotfoundException異常</span><br>        <span class="hljs-keyword">if</span> (!<span class="hljs-string">&quot;admin&quot;</span>.equals(username))&#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> UsernameNotFoundException(<span class="hljs-string">&quot;用戶名不存在！&quot;</span>);<br>        &#125;<br><span class="hljs-comment">//        2、把密碼查詢出來進行解析，或者直接把密碼放入構造方法</span><br>        String password = passwordEncoder.encode(<span class="hljs-string">&quot;123&quot;</span>);<br>        <span class="hljs-comment">//给用户赋予权限admin和normal（多个用逗号隔开，List类型，会自动识别逗号并转换为list类型）</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> User(username,password, AuthorityUtils.commaSeparatedStringToAuthorityList(<br>                <span class="hljs-string">&quot;admin,normal&quot;</span>));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="2、实现自定义登录页面的编写"><a href="#2、实现自定义登录页面的编写" class="headerlink" title="2、实现自定义登录页面的编写"></a>2、实现自定义登录页面的编写</h4><p>config类：</p>
+<p>继承webSecurityConfigurerAdapter重写config（httpSecurity）方法来实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * SpringSecurity配置類配置</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SecurityConfig</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">WebSecurityConfigurerAdapter</span> </span>&#123;<br><br><span class="hljs-comment">//    重寫configure</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configure</span><span class="hljs-params">(HttpSecurity http)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        <span class="hljs-comment">//表單提交</span><br>        http.formLogin()<br>                <span class="hljs-comment">//當發現是/login時認為是登陸，必須和表單提交的地址是一樣的，去執行userDetailServiceImpl</span><br>                .loginProcessingUrl(<span class="hljs-string">&quot;/login&quot;</span>)<br><span class="hljs-comment">//                自定義登錄頁面</span><br>                .loginPage(<span class="hljs-string">&quot;/login.html&quot;</span>)<br>                <span class="hljs-comment">//登錄成功後跳轉的頁面，post請求</span><br>                .successForwardUrl(<span class="hljs-string">&quot;/toMain&quot;</span>)<br>                <span class="hljs-comment">//登錄失敗後的請求，也是Post請求</span><br>                .failureForwardUrl(<span class="hljs-string">&quot;/toError&quot;</span>)<br>        ;<br><br><span class="hljs-comment">//        授權認症</span><br>        http.authorizeRequests()<br>                <span class="hljs-comment">//login.html不需要被認症</span><br>                .antMatchers(<span class="hljs-string">&quot;/login.html&quot;</span>,<span class="hljs-string">&quot;/error.html&quot;</span>).permitAll()<br>                <span class="hljs-comment">//所有請求都必須被認證，必須登錄之後才能進行訪問</span><br>                .anyRequest().authenticated();<br><br>        <span class="hljs-comment">//關閉csrf防護</span><br>        http.csrf().disable();<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> PasswordEncoder <span class="hljs-title">getPasswordEncoder</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> BCryptPasswordEncoder();<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>controller类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoginController</span> </span>&#123;<br><span class="hljs-comment">//登录成功后跳转的首页post</span><br>    <span class="hljs-meta">@RequestMapping(&quot;/toMain&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toMain</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;执行了登录方法&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:main.html&quot;</span>;<br>    &#125;<br><span class="hljs-comment">//失败请求跳转的页面post</span><br>    <span class="hljs-meta">@RequestMapping(&quot;/toError&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toError</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;404登录方法&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:error.html&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="3、自定义请求参数的修改"><a href="#3、自定义请求参数的修改" class="headerlink" title="3、自定义请求参数的修改"></a>3、自定义请求参数的修改</h4><p>在config中添加：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configure</span><span class="hljs-params">(HttpSecurity http)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        <span class="hljs-comment">//表單提交</span><br>        http.formLogin()<br>                <span class="hljs-comment">//自定義用戶名參數</span><br>                .usernameParameter(<span class="hljs-string">&quot;username&quot;</span>)<br>                <span class="hljs-comment">//自定義密碼參數</span><br>                .passwordParameter(<span class="hljs-string">&quot;password&quot;</span>)<br>                <span class="hljs-comment">//當發現是/login時認為是登陸，必須和表單提交的地址是一樣的，去執行userDetailServiceImpl</span><br>                .loginProcessingUrl(<span class="hljs-string">&quot;/login&quot;</span>)<br><span class="hljs-comment">//                自定義登錄頁面</span><br>                .loginPage(<span class="hljs-string">&quot;/login.html&quot;</span>)<br>                <span class="hljs-comment">//登錄成功後跳轉的頁面，post請求</span><br>                .successForwardUrl(<span class="hljs-string">&quot;/toMain&quot;</span>)<br>                <span class="hljs-comment">//登錄失敗後的請求，也是Post請求</span><br>                .failureForwardUrl(<span class="hljs-string">&quot;/toError&quot;</span>)<br>        ;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="4、自定义登录成功处理器"><a href="#4、自定义登录成功处理器" class="headerlink" title="4、自定义登录成功处理器"></a>4、自定义登录成功处理器</h4><p>首先实现AuthenticationSuccessHandel的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyAuthenticationSuccessHandel</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">AuthenticationSuccessHandler</span> </span>&#123;<br><span class="hljs-comment">//自定义的url</span><br>    <span class="hljs-keyword">private</span> String url;<br><span class="hljs-comment">//方便给自定义的WebSuccessHandle传参</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyAuthenticationSuccessHandel</span><span class="hljs-params">(String url)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.url = url;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAuthenticationSuccess</span><span class="hljs-params">(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication)</span> <span class="hljs-keyword">throws</span> IOException, ServletException </span>&#123;<br>        User principal = (User) authentication.getPrincipal();<br>        System.out.println(principal.getUsername());<br>        System.out.println(principal.getAuthorities());<br>        <span class="hljs-comment">//考虑到安全问题，密码不会直接显示而是显示为null</span><br>        System.out.println(principal.getPassword());<br>        httpServletResponse.sendRedirect(url);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后直接在config中使用successHandel（不能和successForwardUrl同时存在会报异常）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configure</span><span class="hljs-params">(HttpSecurity http)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        <span class="hljs-comment">//表單提交</span><br>        http.formLogin()<br>                <span class="hljs-comment">//自定義用戶名參數</span><br>                .usernameParameter(<span class="hljs-string">&quot;username&quot;</span>)<br>                <span class="hljs-comment">//自定義密碼參數</span><br>                .passwordParameter(<span class="hljs-string">&quot;password&quot;</span>)<br>                <span class="hljs-comment">//當發現是/login時認為是登陸，必須和表單提交的地址是一樣的，去執行userDetailServiceImpl</span><br>                .loginProcessingUrl(<span class="hljs-string">&quot;/login&quot;</span>)<br><span class="hljs-comment">//                自定義登錄頁面</span><br>                .loginPage(<span class="hljs-string">&quot;/login.html&quot;</span>)<br>                <span class="hljs-comment">//登錄成功後跳轉的頁面，post請求</span><br>                <span class="hljs-comment">//.successForwardUrl(&quot;/toMain&quot;)</span><br>                <span class="hljs-comment">//登錄失敗後的請求，也是Post請求</span><br>                .failureForwardUrl(<span class="hljs-string">&quot;/toError&quot;</span>)<br>.successHandler(<span class="hljs-keyword">new</span> MyAuthenticationSuccessHandel(<span class="hljs-string">&quot;http://baidu.com&quot;</span>))<br>        ;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="5、自定义登录失败处理器"><a href="#5、自定义登录失败处理器" class="headerlink" title="5、自定义登录失败处理器"></a>5、自定义登录失败处理器</h4><p>首先实现AuthenticationFailureHandler</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyAuthenticationSuccessHandel</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">AuthenticationSuccessHandler</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> String url;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyAuthenticationSuccessHandel</span><span class="hljs-params">(String url)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.url = url;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAuthenticationSuccess</span><span class="hljs-params">(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication)</span> <span class="hljs-keyword">throws</span> IOException, ServletException </span>&#123;<br>        User principal = (User) authentication.getPrincipal();<br>        System.out.println(principal.getUsername());<br>        System.out.println(principal.getAuthorities());<br>        <span class="hljs-comment">//考虑到安全问题，密码不会直接显示而是显示为null</span><br>        System.out.println(principal.getPassword());<br>        httpServletResponse.sendRedirect(url);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后直接在config中使用failureHandel（不能和failureForwardUrl同时存在会报异常）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configure</span><span class="hljs-params">(HttpSecurity http)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        <span class="hljs-comment">//表單提交</span><br>        http.formLogin()<br>                <span class="hljs-comment">//自定義用戶名參數</span><br>                .usernameParameter(<span class="hljs-string">&quot;username&quot;</span>)<br>                <span class="hljs-comment">//自定義密碼參數</span><br>                .passwordParameter(<span class="hljs-string">&quot;password&quot;</span>)<br>                <span class="hljs-comment">//當發現是/login時認為是登陸，必須和表單提交的地址是一樣的，去執行userDetailServiceImpl</span><br>                .loginProcessingUrl(<span class="hljs-string">&quot;/login&quot;</span>)<br><span class="hljs-comment">//                自定義登錄頁面</span><br>                .loginPage(<span class="hljs-string">&quot;/login.html&quot;</span>)<br>                <span class="hljs-comment">//登錄成功後跳轉的頁面，post請求</span><br>                <span class="hljs-comment">//.successForwardUrl(&quot;/toMain&quot;)</span><br>                <span class="hljs-comment">//登錄失敗後的請求，也是Post請求</span><br>                <span class="hljs-comment">//.failureForwardUrl(&quot;/toError&quot;)</span><br>.successHandler(<span class="hljs-keyword">new</span> MyAuthenticationSuccessHandel(<span class="hljs-string">&quot;http://baidu.com&quot;</span>))<br>        .failureHandler(<span class="hljs-keyword">new</span> MyAuthenticationFailureHandler(<span class="hljs-string">&quot;http://lcbc6.gitee.io&quot;</span>))<br>        ;<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="三、常用方法"><a href="#三、常用方法" class="headerlink" title="三、常用方法"></a>三、常用方法</h3><h4 id="1、认识antMatchers"><a href="#1、认识antMatchers" class="headerlink" title="1、认识antMatchers"></a>1、认识antMatchers</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> C <span class="hljs-title">antMatchers</span><span class="hljs-params">(String... antPatterns)</span> </span><br></code></pre></td></tr></table></figure>
+
+<p>参数是不定向参数，每个参数是一个ant表达式，用于匹配URL规则。</p>
+<p>规则如下：</p>
+<ul>
+<li><code>?</code>: 匹配一个字符</li>
+<li><code>*</code>: 匹配0个或多个字符</li>
+<li><code>**</code>: 匹配0个或多个目录</li>
+</ul>
+<p>在实际项目中经常需要放行所有的静态资源，下面演示放行js文件夹下的所有脚本文件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">.antMatchers(<span class="hljs-string">&quot;/js/**&quot;</span>,<span class="hljs-string">&quot;/css/**&quot;</span>).permitAll()<br></code></pre></td></tr></table></figure>
+
+<p>还有一种是只要带有.js后缀的文件都放行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">.antMatchers(<span class="hljs-string">&quot;/**/*.js&quot;</span>).permitAll()<br></code></pre></td></tr></table></figure>
+
+<h4 id="2、认识regexMatchers"><a href="#2、认识regexMatchers" class="headerlink" title="2、认识regexMatchers"></a>2、认识regexMatchers</h4><p>使用正则表达式匹配</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> C <span class="hljs-title">regexMatchers</span><span class="hljs-params">(String... regexPatterns)</span></span><br></code></pre></td></tr></table></figure>
+
+<p>可以指定访问的请求方式放行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> C <span class="hljs-title">regexMatchers</span><span class="hljs-params">(HttpMethod method, String... regexPatterns)</span></span><br></code></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<p>放行所有.png文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">.regexMatchers(<span class="hljs-string">&quot;.+[.]png&quot;</span>).permitAll()<br></code></pre></td></tr></table></figure>
+
+<p>放行post方式请求的/find访问</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">.regexMatchers(HttpMethod.POST,<span class="hljs-string">&quot;/find&quot;</span>).permitAll()<br></code></pre></td></tr></table></figure>
+
+<h4 id="3、认识mvcMatchers"><a href="#3、认识mvcMatchers" class="headerlink" title="3、认识mvcMatchers"></a>3、认识mvcMatchers</h4><p>放行/lc/demo请求</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">.mvcMatchers(<span class="hljs-string">&quot;/demo&quot;</span>).servletPath(<span class="hljs-string">&quot;/lc&quot;</span>).permitAll()<br></code></pre></td></tr></table></figure>
+
+<h3 id="四、内置访问控制方法"><a href="#四、内置访问控制方法" class="headerlink" title="四、内置访问控制方法"></a>四、内置访问控制方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-comment">//允许所有访问</span><br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String permitAll = <span class="hljs-string">&quot;permitAll&quot;</span>;<br><span class="hljs-comment">//拒绝所有访问</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String denyAll = <span class="hljs-string">&quot;denyAll&quot;</span>;<br><span class="hljs-comment">//可以匿名访问</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String anonymous = <span class="hljs-string">&quot;anonymous&quot;</span>;<br><span class="hljs-comment">//进行认证后访问</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String authenticated = <span class="hljs-string">&quot;authenticated&quot;</span>;<br><span class="hljs-comment">//完全认证后访问</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String fullyAuthenticated = <span class="hljs-string">&quot;fullyAuthenticated&quot;</span>;<br><span class="hljs-comment">//记住我</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String rememberMe = <span class="hljs-string">&quot;rememberMe&quot;</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="五、角色权限判断"><a href="#五、角色权限判断" class="headerlink" title="五、角色权限判断"></a>五、角色权限判断</h3><p>用于用户已经被认证后，判断用户是否具有特定的要求。</p>
+<h4 id="1、hasAuthority（String）"><a href="#1、hasAuthority（String）" class="headerlink" title="1、hasAuthority（String）"></a>1、hasAuthority（String）</h4><p>​    判断用户是否具有特定的权限，用户的权限是在自定义登录逻辑中创建User对象时指定的。下列admin和normal就是用户的权限。admin和normal严格区分大小写。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> User(username,password, AuthorityUtils.commaSeparatedStringToAuthorityList(<br>                <span class="hljs-string">&quot;admin,normal&quot;</span>));<br></code></pre></td></tr></table></figure>
+
+<p>在配置类中通过hasAuthority(“admin”)设置具有admin权限时才能访问。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">.antMachers(<span class="hljs-string">&quot;/mian.html&quot;</span>).hasAuthority(<span class="hljs-string">&quot;admin&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="2、hasAnyAuthority-String…"><a href="#2、hasAnyAuthority-String…" class="headerlink" title="2、hasAnyAuthority(String…)"></a>2、hasAnyAuthority(String…)</h4><p>​    如果用户具备给定权限中的某一个，就允许访问。</p>
+<p>由于大小写和用户的权限不相同，所以用户无权访问</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">.antMachers(<span class="hljs-string">&quot;/mian.html&quot;</span>).hasAnyAuthority(<span class="hljs-string">&quot;adMin&quot;</span>,<span class="hljs-string">&quot;Admin&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="3、hasRole-String"><a href="#3、hasRole-String" class="headerlink" title="3、hasRole(String)"></a>3、hasRole(String)</h4><p>当具有特定的角色时才能进行访问</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">.antMachers(<span class="hljs-string">&quot;/main.html&quot;</span>).hasRelo(<span class="hljs-string">&quot;abc&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="4、hasAnyRole-String…"><a href="#4、hasAnyRole-String…" class="headerlink" title="4、hasAnyRole(String…)"></a>4、hasAnyRole(String…)</h4><p>可以通时指定多个角色</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">.antMacher(<span class="hljs-string">&quot;/main.html&quot;</span>).hasAnyRole(<span class="hljs-string">&quot;abc&quot;</span>,<span class="hljs-string">&quot;user&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="六、ip地址判断"><a href="#六、ip地址判断" class="headerlink" title="六、ip地址判断"></a>六、ip地址判断</h3><p>只有在特定的ip地址才能操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-comment">//ip地址必须为127.0.0.1才能控制</span><br>                .antMatchers(<span class="hljs-string">&quot;/main1.html&quot;</span>).hasIpAddress(<span class="hljs-string">&quot;127.0.0.1&quot;</span>)<br>               <br></code></pre></td></tr></table></figure>
+
+<h3 id="七、自定义403（权限不足）处理页面"><a href="#七、自定义403（权限不足）处理页面" class="headerlink" title="七、自定义403（权限不足）处理页面"></a>七、自定义403（权限不足）处理页面</h3>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/spring/">spring</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/07/redis/">
+                        <span class="hidden-mobile">redis的学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <input type="hidden" name="测试是不是真的发布到了网站上">
+  <iframe frameborder="yes" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1822538249&auto=1&height=66"></iframe>
+  <div class="footer-content">
+     <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/myjs.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
